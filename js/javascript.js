@@ -6,17 +6,14 @@ function addButtons() {
 	for (var i = 0; i < buttons.length; i++){
 	
 	buttons[i].addEventListener("click", function() {
-		var val = this.value;
-		display.innerHTML += val;
-
-		if (display.innerHTML.length > 9) {
-			display.innerHTML = 'Error: too many digits';
-			setTimeout(func, 1500);
-				function func() {
-    		display.innerHTML = '';
+		
+		if (display.innerHTML.length === 9) {
+			display.innerHTML += "";
+			}else {
+				var val = this.value;
+				display.innerHTML += val;
 			}
 			
-		}
 	});	
 }
 }
@@ -30,17 +27,16 @@ function displayOn(){
 }
 
 function evaluate() {
-	x = display.innerHTML;
-	y = eval(x);
-	y.toPrecision(8);
+	var x = display.innerHTML;
+	var y = eval(x);
 	display.innerHTML = y;
 }
 
 function sqroot() {
-	x = display.innerHTML;
-	y = eval(x);
-	y.toPrecision(7);
-	display.innerHTML = Math.sqrt(y);
+	var x = display.innerHTML;
+	var y = eval(x);
+	y = Math.sqrt(y);
+	display.innerHTML = Math.round(y*100000000)/100000000;
 
 }
 
